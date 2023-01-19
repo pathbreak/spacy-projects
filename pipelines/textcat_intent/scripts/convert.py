@@ -1,15 +1,16 @@
 """Convert textcat annotation from CSV to spaCy v3 .spacy format."""
 import warnings
 from pathlib import Path
+import typer
 
 import csv
 import json
-
+import sys
 import spacy
 from spacy.tokens import DocBin
 
 
-def main(input_path: Path, cats_json:Path, output_path: Path):
+def convert(input_path: Path, cats_json:Path, output_path: Path):
     
     
     with open(cats_json, 'r') as f:
@@ -42,4 +43,4 @@ def main(input_path: Path, cats_json:Path, output_path: Path):
 
 
 if __name__ == "__main__":
-    main()
+    typer.run(convert)
