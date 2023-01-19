@@ -36,7 +36,7 @@ def convert(input_path: Path, cats_json:Path, output_path: Path):
             cat = row[1]
             
             doc = nlp.make_doc(text)
-            print(one_hot_dicts[cat])
+            #print(one_hot_dicts[cat])
             doc.cats = one_hot_dicts[cat]
             db.add(doc)
 
