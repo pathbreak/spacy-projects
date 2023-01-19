@@ -13,6 +13,7 @@ def convert(lang: str, input_path: Path, output_path: Path):
     db = DocBin()
     for line in srsly.read_jsonl(input_path):
         doc = nlp.make_doc(line["text"])
+        print(line["cats"])
         doc.cats = line["cats"]
         db.add(doc)
     db.to_disk(output_path)
